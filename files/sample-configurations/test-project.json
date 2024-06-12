@@ -1,0 +1,80 @@
+{
+    "project": {
+        "title": "PMod Probe Demo",
+        "id": 1
+    },
+    "options": {
+        "showTestsTab": false,
+        "showScriptsTab": false
+    },
+
+    "scripts": [
+
+    ],
+
+    "tests": [
+
+    ],
+
+    "pages": [
+        {
+            "id": "home",
+            "title": "Home",
+            
+            "layout_sections": [
+                {
+                    "id": "demo",
+                    "title": "Widgets Demo",
+
+                    "layout_tiles_x": 6,
+                    "layout_tiles_y": 1,
+
+                    "widgets": [
+                        {
+                            "id": "718838e7",
+                            "widget": "pprobe-basic::bits",
+
+                            "layout": {
+                                "pos_x": 0,
+                                "pos_y": 0,
+                                "size_x": 1,
+                                "size_y": 1
+                            },
+                            "config": {
+                                "label": "Byte Read",
+                                "mode": "read",
+                                "bitOrder": "MSBF",
+                                "$bits": {
+                                    "dir": "TOPI",
+                                    "start": 0,
+                                    "count": 8
+                                }
+                            }
+                        },
+                        {
+                            "id": "e466add5",
+                            "widget": "pprobe-basic::bits",
+
+                            "layout": {
+                                "pos_x": 1,
+                                "pos_y": 0,
+                                "size_x": 1,
+                                "size_y": 1
+                            },
+                            "config": {
+                                "label": "Byte Write",
+                                "mode": "write",
+                                "bitOrder": "MSBF",
+                                "$bits": {
+                                    "dir": "TIPO",
+                                    "start": 0,
+                                    "count": 8
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
