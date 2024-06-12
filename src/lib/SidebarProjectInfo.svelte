@@ -15,7 +15,7 @@
     </div>
 
     <button on:click={() => {dispatch("show-project-tab");}}>
-        <img src="/assets/icons/settings.svg" alt="">
+        <img src="assets/icons/settings.svg" alt="">
     </button>
 </div>
 
