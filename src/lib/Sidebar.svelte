@@ -15,7 +15,7 @@
 <div class="sidebar">
     <div class="top-section">
         <div class="logo">
-            <img src="/assets/pmod-probe-logo.png" alt="">
+            <img src="assets/pmod-probe-logo.png" alt="">
         </div>
 
         <SidebarProjectInfo {projectManager} on:show-project-tab={() => {selectedTab = "project"}} />
