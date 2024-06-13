@@ -15,8 +15,8 @@
 
     export let selectedTab = "project";
 
-    let page: PageConfig|null = null;
-    $: page = $loadedProject?.pages.filter(p => p.id==selectedTab.replace("@user/",""))[0]||null;
+    //let page: PageConfig|null = null;
+    //$: page = $loadedProject?.pages.filter(p => p.id==selectedTab.replace("@user/",""))[0]||null;
 </script>
 
 <title>PMod Probe</title>
@@ -30,9 +30,11 @@
         {:else if selectedTab == "project"}
             <ProjectTab {projectManager}/>
         {:else if selectedTab.startsWith("@user/")}
-            {#if page}
-                <UserDefinedTab {page} />
-            {/if}
+            {#each $loadedProject?.pages||[] as page}
+                {#if selectedTab.replace("@user/", "") == page.id}
+                    <UserDefinedTab {page} />
+                {/if}
+            {/each}
         {:else}
             <ConnectOrLoadTab />
         {/if}
