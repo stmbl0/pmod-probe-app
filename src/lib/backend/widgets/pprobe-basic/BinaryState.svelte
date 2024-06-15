@@ -1,26 +1,24 @@
 <!--
     ### PMod Probe Widget ###
 
-    Widget Name: Button
-    Widget ID: pprobe-basic::button
-    Required Module: --
+    Widget Name: BinaryState
+    Widget ID: pprobe-basic::binary-state
 
-    Description: A button to enable bit(s) for a short period of time
+    Description: Shows the state of one bit
 
     Configuration:
+        label: string
         $bits <selector>
 -->
 
 <script lang="ts">
     //// Export Info about Widget ////
-    export const WIDGET_ID = "pprobe-basic::button";
-    export const WIDGET_NAME = "Button";
+    export const WIDGET_ID = "pprobe-basic::binary-state";
+    export const WIDGET_NAME = "Binary State";
 
     //// Basic Imports ////
-    import BaseWidget from "../BaseWidget.svelte";
-
     import { getSelector } from "$lib/backend/project/utils";
-    import { BitWriter } from "$lib/backend/data/dataFetcher";
+    import { BitFetcher } from "$lib/backend/data/dataFetcher";
 
     import type { Selector } from "$lib/backend/types";
     import type { WidgetLayoutConfig } from "../WidgetConfig";
@@ -39,51 +37,39 @@
     //// Data ////
 
     const sel = getSelector(config.$bits);
-    const handler = new BitWriter(sel);
+    const handler = new BitFetcher(sel);
     const { bits } = handler;
-
-
-    //// Event Handlers ////
-    function onClick() {
-        let editedState = ($bits).fill(true);
-        bits.set(editedState);
-        handler.writeChanges();
-
-        setTimeout(() => {
-            let editedState = ($bits).fill(false);
-            bits.set(editedState);
-            handler.writeChanges();
-        }, 150);
-    }
 </script>
 
-<button
-    on:click={onClick}
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div
+    class="binary-state-widget"
+    class:active={$bits[0] == true}
 
     style:grid-column="{(typeof layout?.pos_x !== "undefined") ? layout.pos_x : ""} {(typeof layout?.size_x !== "undefined") ? `span ${layout.size_x}` : ""}"
     style:grid-row   ="{(typeof layout?.pos_y !== "undefined") ? layout.pos_y : ""} {(typeof layout?.size_y !== "undefined") ? `span ${layout.size_y}` : ""}"
 >
     {config.label}
-</button>
+</div>
 
 <style lang="scss">
-    button {
-        width: 100%;
-        height: 100%;
+    .binary-state-widget {
+        width: calc(100% - 48px);
+        height: calc(100% - 48px);
 
-        padding: 24px 24px;
+        padding: 24px;
         border-radius: 8px;
 
         background-color: #1a2025aa;
         backdrop-filter: blur(2px);
         transition: 0.3s;
-        cursor: pointer;
 
         outline: none;
         border: none;
 
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
 
@@ -92,13 +78,8 @@
         font-weight: 700;
         color: #ffffff;
 
-        &:hover {
-            background-color: #1a2025dd;
-            border-radius: 20px;
-        }
-
-        &:active {
-            background-color: #1a2025ff;
+        &.active {
+            background-color: #2c3035;
         }
     }
 </style>

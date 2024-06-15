@@ -17,6 +17,7 @@
     export const WIDGET_NAME = "Switch";
 
     //// Basic Imports ////
+    import { getSelector } from "$lib/backend/project/utils";
     import { BitWriter } from "$lib/backend/data/dataFetcher";
 
     import type { Selector } from "$lib/backend/types";
@@ -25,7 +26,7 @@
     //// Configuration ////
     type WidgetConfig_T = {
         label: string,
-        $bits: Selector;
+        $bits: Selector|string;
     }
 
     export let config: WidgetConfig_T|{[key: string]:any};
@@ -35,7 +36,8 @@
 
     //// Data ////
 
-    const handler = new BitWriter(config.$bits);
+    const sel = getSelector(config.$bits);
+    const handler = new BitWriter(sel);
     const { bits } = handler;
 
 

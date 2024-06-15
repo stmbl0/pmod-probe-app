@@ -21,6 +21,7 @@
     //// Basic Imports ////
     import BaseWidget from "../BaseWidget.svelte";
 
+    import { getSelector } from "$lib/backend/project/utils";
     import { BitFetcher, BitWriter } from "$lib/backend/data/dataFetcher";
 
     import type { Selector } from "$lib/backend/types";
@@ -32,7 +33,7 @@
 
         mode: "read" | "write";
         bitOrder?: "LSBF" | "MSBF";
-        $bits: Selector;
+        $bits: Selector|string;
     }
 
     export let config: WidgetConfig_T|{[key: string]:any};
@@ -42,7 +43,8 @@
 
     //// Data ////
 
-    const handler = config.mode == "read" ? new BitFetcher(config.$bits) : new BitWriter(config.$bits);
+    const sel = getSelector(config.$bits);
+    const handler = config.mode == "read" ? new BitFetcher(sel) : new BitWriter(sel);
     const { bits } = handler;
 
 
