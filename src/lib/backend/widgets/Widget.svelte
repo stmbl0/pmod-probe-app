@@ -5,6 +5,7 @@
     import Bits from "./pprobe-basic/Bits.svelte";
     import Button from "./pprobe-basic/Button.svelte";
     import Switch from "./pprobe-basic/Switch.svelte";
+    import RamProgrammer from "./very-simple-cpu/RamProgrammer.svelte";
 
     export let config: WidgetConfig;
 </script>
@@ -17,4 +18,7 @@
     <Switch config={config.config} layout={config.layout} />
 {:else if config.widget == "pprobe-basic::binary-state"}
     <BinaryState config={config.config} layout={config.layout} />
+
+{:else if config.widget == "very-simple-cpu::programmer"}
+    <RamProgrammer config={config.config} layout={config.layout} />
 {/if}

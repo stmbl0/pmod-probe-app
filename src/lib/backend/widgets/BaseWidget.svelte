@@ -6,8 +6,8 @@
 
 <div
     class="widget-container"
-    style:grid-column="{(typeof layout?.pos_x !== "undefined") ? layout.pos_x : ""} {(typeof layout?.size_x !== "undefined") ? `span ${layout.size_x}` : ""}"
-    style:grid-row   ="{(typeof layout?.pos_y !== "undefined") ? layout.pos_y : ""} {(typeof layout?.size_y !== "undefined") ? `span ${layout.size_y}` : ""}"
+    style:grid-column="{(typeof layout?.pos_x !== "undefined") ? layout.pos_x : ""} {layout?.pos_x&&layout?.size_x?"/":""} {(typeof layout?.size_x !== "undefined") ? `span ${layout.size_x}` : ""}"
+    style:grid-row   ="{(typeof layout?.pos_y !== "undefined") ? layout.pos_y : ""} {layout?.pos_y&&layout?.size_y?"/":""} {(typeof layout?.size_y !== "undefined") ? `span ${layout.size_y}` : ""}"
 >
     <slot />
 </div>

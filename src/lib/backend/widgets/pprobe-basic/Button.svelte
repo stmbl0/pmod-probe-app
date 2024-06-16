@@ -74,13 +74,13 @@
         padding: 24px 24px;
         border-radius: 8px;
 
-        background-color: #1a2025aa;
+        background-color: #1a202500;
         backdrop-filter: blur(2px);
         transition: 0.3s;
         cursor: pointer;
 
         outline: none;
-        border: none;
+        border: 3px solid #1a2025ff;
 
         display: flex;
         flex-direction: column;
@@ -93,12 +93,12 @@
         color: #ffffff;
 
         &:hover {
-            background-color: #1a2025dd;
-            border-radius: 20px;
+            background-color: #1a202533;
+            border-radius: 16px;
         }
 
         &:active {
-            background-color: #1a2025ff;
+            background-color: #1a2025aa;
         }
     }
 </style>
