@@ -77,10 +77,12 @@
 <style lang="scss">
     .bits-widget {
         width: 100%;
+        height: 100%;
 
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         gap: 12px;
     }
 
@@ -97,6 +99,8 @@
 
     .bit-list {
         width: 100%;
+        height: 100%;
+
         display: flex;
         flex-direction: row;
         align-items: center;

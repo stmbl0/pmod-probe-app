@@ -1,10 +1,10 @@
 import { get } from "svelte/store";
 import { loadedProject } from "../globals";
-import type { Selector } from "../types";
+import type { BitMapping } from "../types";
 
-export function getSelector( sel: Selector|string ) {
+export function getSelector( sel: BitMapping|string ): BitMapping {
     if(typeof sel === "string") {
-        return get(loadedProject)?.mapping?.[sel] || {dir:"TOPI",start:0} as Selector;
+        return get(loadedProject)?.mapping?.[sel] || {dir:"TOPI",start:0} as BitMapping;
     } else {
         return sel;
     }

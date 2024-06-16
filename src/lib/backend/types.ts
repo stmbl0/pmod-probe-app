@@ -22,3 +22,7 @@ export type Selector = {
     end?: number;
     count?: number;
 }
+
+export type BitMapping = Selector & {
+    valueMap?: {[key: string]: string};
+}
