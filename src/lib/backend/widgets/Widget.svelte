@@ -1,5 +1,6 @@
 <script lang="ts">
     import type { WidgetConfig } from "./WidgetConfig";
+    import CpuBlockDiagram from "./p-seminar/CpuBlockDiagram.svelte";
 
     import BinaryState from "./pprobe-basic/BinaryState.svelte";
     import Bits from "./pprobe-basic/Bits.svelte";
@@ -27,4 +28,7 @@
 
 {:else if config.widget == "very-simple-cpu::programmer"}
     <RamProgrammer config={config.config} layout={config.layout} />
+
+{:else if config.widget == "p-seminar::cpu-block-diagram"}
+    <CpuBlockDiagram config={config.config} layout={config.layout} />
 {/if}
