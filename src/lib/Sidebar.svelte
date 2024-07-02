@@ -14,9 +14,9 @@
 
 <div class="sidebar">
     <div class="top-section">
-        <div class="logo">
+        <!--<div class="logo">
             <img src="assets/pmod-probe-logo.png" alt="">
-        </div>
+        </div>-->
 
         <SidebarProjectInfo {projectManager} on:show-project-tab={() => {selectedTab = "project"}} />
 
@@ -49,7 +49,7 @@
 <style lang="scss">
     .sidebar {
         height: calc(100vh - 48px);
-        width: calc(350px - 48px);
+        width: calc(300px - 48px);
         padding: 24px;
 
         background-color: #1a2025aa;

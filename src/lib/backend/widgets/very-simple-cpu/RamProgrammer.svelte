@@ -110,6 +110,10 @@
     function end() {
         pe_writer.bits.set(pe_writer.bitsArray.fill(false));
         pe_writer.writeChanges();
+        pa_writer.bits.set(pa_writer.bitsArray.fill(false));
+        pa_writer.writeChanges();
+        pd_writer.bits.set(pd_writer.bitsArray.fill(false));
+        pd_writer.writeChanges();
         isProgramming = false;
         enteredData = "";
     }

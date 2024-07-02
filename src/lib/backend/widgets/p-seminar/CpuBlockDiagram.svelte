@@ -77,7 +77,7 @@
             <rect x="641" y="355" width="88" height="48" fill={$thLoad[0]||$tlLoad[0] ? "#32353a" : "#1C1E22"}/>
             <rect x="363" y="679" width="88" height="48" fill={bitsToDec($mux)==1 ? "#32353a" : "#1C1E22"}/>
             <rect x="564" y="679" width="88" height="48" fill={bitsToDec($mux)==3 ? "#32353a" : "#1C1E22"}/>
-            <rect x="617" y="565" width="48" height="114" fill="#1C1E22"/>
+            <rect x="617" y="565" width="48" height="114" fill={$memoryWE[0] ? "#32353a" : "#1C1E22"}/>
             <rect x="38" y="355" width="88" height="48" fill={$accLoad[0] ? "#32353a" : "#1C1E22"}/>
             <rect x="38" y="517" width="88" height="48" fill={$irLoad[0] ? "#32353a" : "#1C1E22"}/>
             <rect x="362" y="94" width="88" height="48" fill={$zcLoad[0] ? "#32353a" : "#1C1E22"}/>
